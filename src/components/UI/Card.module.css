@@ -1,0 +1,11 @@
+.card {
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: white;
+}
+
+@media (max-width: 445px) {
+  .card {
+    padding: 1.5rem 0.5rem;
+  }
+}

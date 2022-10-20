@@ -1,0 +1,27 @@
+.footer {
+    margin-bottom: 1rem;
+}
+.footer img {
+    height: 2.5rem;
+}
+.footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 0 1rem 0;
+    font-size: smaller;
+}
+.footer ul li {
+    list-style-type: none;
+}
+.footer a {
+    text-decoration: underline;
+    color:aliceblue;
+    font-weight: 600;
+}
+.copyright {
+    display: block;
+    font-size: small;
+}
