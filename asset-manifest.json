@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ultra-high-tech/static/css/main.b5d64ae7.css",
+    "main.js": "/ultra-high-tech/static/js/main.8202aab8.js",
+    "static/js/787.2143a59b.chunk.js": "/ultra-high-tech/static/js/787.2143a59b.chunk.js",
+    "static/media/brain.svg": "/ultra-high-tech/static/media/brain.1aa36e0cc22bdff863e6b2e33a853ab9.svg",
+    "static/media/id-card.svg": "/ultra-high-tech/static/media/id-card.8a8fd28053f3e19e8f756c12946a0da9.svg",
+    "static/media/handshake.svg": "/ultra-high-tech/static/media/handshake.cdd3c0715aea4bf97f1f55c510ded078.svg",
+    "static/media/instagram.svg": "/ultra-high-tech/static/media/instagram.62572c862d53f228aa8eff879e2e1d37.svg",
+    "static/media/graph.svg": "/ultra-high-tech/static/media/graph.482ff6bb1140576e790d38c62b3d0a80.svg",
+    "static/media/twitter.svg": "/ultra-high-tech/static/media/twitter.16ec4858233faaff5a62f7f7a40333c6.svg",
+    "static/media/youtube.svg": "/ultra-high-tech/static/media/youtube.a166d430b8603750547e0878f1b6595c.svg",
+    "static/media/check.svg": "/ultra-high-tech/static/media/check.823db7d1532a5fe58edcc71eb23c4012.svg",
+    "static/media/facebook.svg": "/ultra-high-tech/static/media/facebook.f51db061afd1b76fff7ddfd786e4e06c.svg",
+    "static/media/github.svg": "/ultra-high-tech/static/media/github.2c999a39b8790dee4083014a154d594c.svg",
+    "index.html": "/ultra-high-tech/index.html",
+    "main.b5d64ae7.css.map": "/ultra-high-tech/static/css/main.b5d64ae7.css.map",
+    "main.8202aab8.js.map": "/ultra-high-tech/static/js/main.8202aab8.js.map",
+    "787.2143a59b.chunk.js.map": "/ultra-high-tech/static/js/787.2143a59b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5d64ae7.css",
+    "static/js/main.8202aab8.js"
+  ]
+}
