@@ -14,3 +14,6 @@
 .products div:nth-child(2n+1) {
     box-shadow: 1px 2px 10px var(--color-blue);
 }
+.products svg, .products .error {
+    margin-inline: auto;
+}

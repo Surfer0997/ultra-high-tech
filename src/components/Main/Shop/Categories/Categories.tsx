@@ -1,19 +1,32 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { DebouncedButton } from '../../../UI/DebouncedButton';
 import { getCategoryBooks } from '../Products/productsSlice';
 import styles from './Categories.module.css';
 
 export const Categories = () => {
+    
     const [isDisabled, setIsDisabled] = useState(false);
     const dispatch = useDispatch<any>();
+    const input = useRef<HTMLInputElement | null>(null);
     const loadCategory = (category:string) => ()=> {
         if (!isDisabled) {
             setIsDisabled(true);
             dispatch(getCategoryBooks(category));
             setTimeout(()=>setIsDisabled(false), 800);
+        }     
+    }
+
+    useEffect(()=>{
+        loadCategory('detective')();
+    }, []);
+
+    const submitHandler = (e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (input.current?.value) {
+            loadCategory(input.current?.value)();
+            input.current.value = '';
         }
-        
     }
 
     return (
@@ -23,6 +36,7 @@ export const Categories = () => {
             <DebouncedButton clickHandler={loadCategory('sport')}>For nerds</DebouncedButton>
             <DebouncedButton clickHandler={loadCategory('program')}>For programmers</DebouncedButton>
             <DebouncedButton clickHandler={loadCategory('chill')}>For brogrammers</DebouncedButton>
+            <form onSubmit={submitHandler}><input ref={input} type="text" /><input type="submit" hidden /></form>
         </section>
     )
 };

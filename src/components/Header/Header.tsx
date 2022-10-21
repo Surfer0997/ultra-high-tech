@@ -30,6 +30,10 @@ const BURGER_STYLE = {
   bmItemList: {
     padding: '0.8em',
   },
+  bmOverlay: {
+    left: '0',
+    top: '0'
+  }
 };
 
 export const Header = () => {

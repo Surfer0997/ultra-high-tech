@@ -17,3 +17,7 @@ export type Book = {
     formats: {[string:string]:string};
     download_count: number;
 }
+
+export enum LoadingStatus {
+    'loading', 'success', 'error'
+}

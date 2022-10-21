@@ -1,17 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type CartItem = {
-  id: string;
-  name: string;
+  id: number;
+  title: string;
   price: number;
   amount: number;
 };
 
 const initialState = {
   cartIsVisible: false,
-  cart: [
-    { id: 'urmomsgay', name: 'Yeah yeah yeah', price: 3, amount: 5 },
-  ] as CartItem[],
+  cart: [] as CartItem[],
   total: 0,
 };
 
@@ -21,6 +19,7 @@ export const cartSlice = createSlice({
   reducers: {
     addCartItem: (state, action) => {
       console.log('Created cart item:', action.payload);
+      state.cart = [...state.cart, action.payload];
     },
     toggleIsCartVisible: (state) => {
         state.cartIsVisible = !state.cartIsVisible;

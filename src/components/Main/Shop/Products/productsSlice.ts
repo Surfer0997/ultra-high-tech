@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Book } from '../../../../types/types';
+import { Book, LoadingStatus } from '../../../../types/types';
 import axios from 'axios';
 
 const BOOK_API_URL = 'https://gutendex.com/books/?topic=';
@@ -13,7 +13,7 @@ export const getCategoryBooks = createAsyncThunk(
 )
 
 const initialState = {
-  loaded: false,
+  status: LoadingStatus.loading,
   products: [] as Book[],
 };
 
@@ -23,11 +23,21 @@ export const productsSlice = createSlice({
   reducers: {
     setBooks: (state, action) => {
       state.products = action.payload;
-      console.log(state.products);
     }
   },
-  extraReducers: {
-
+  extraReducers(builder) {
+    builder.addCase(getCategoryBooks.fulfilled, (state, action)=>{
+      state.status = LoadingStatus.success;
+      console.log('fullfilled');
+    });
+    builder.addCase(getCategoryBooks.pending, (state, action)=>{
+      state.status = LoadingStatus.loading;
+      console.log('pending');
+    });
+    builder.addCase(getCategoryBooks.rejected, (state, action)=>{
+      state.status = LoadingStatus.error;
+      console.log('rejected');
+    });
   }
 });
 
