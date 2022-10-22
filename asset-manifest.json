@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ultra-high-tech/static/css/main.f561daaf.css",
-    "main.js": "/ultra-high-tech/static/js/main.eb8a4ca7.js",
+    "main.css": "/ultra-high-tech/static/css/main.aadcca26.css",
+    "main.js": "/ultra-high-tech/static/js/main.8bc18f30.js",
     "static/js/787.2143a59b.chunk.js": "/ultra-high-tech/static/js/787.2143a59b.chunk.js",
     "static/media/brain.svg": "/ultra-high-tech/static/media/brain.1aa36e0cc22bdff863e6b2e33a853ab9.svg",
     "static/media/id-card.svg": "/ultra-high-tech/static/media/id-card.8a8fd28053f3e19e8f756c12946a0da9.svg",
@@ -15,12 +15,12 @@
     "static/media/facebook.svg": "/ultra-high-tech/static/media/facebook.f51db061afd1b76fff7ddfd786e4e06c.svg",
     "static/media/github.svg": "/ultra-high-tech/static/media/github.2c999a39b8790dee4083014a154d594c.svg",
     "index.html": "/ultra-high-tech/index.html",
-    "main.f561daaf.css.map": "/ultra-high-tech/static/css/main.f561daaf.css.map",
-    "main.eb8a4ca7.js.map": "/ultra-high-tech/static/js/main.eb8a4ca7.js.map",
+    "main.aadcca26.css.map": "/ultra-high-tech/static/css/main.aadcca26.css.map",
+    "main.8bc18f30.js.map": "/ultra-high-tech/static/js/main.8bc18f30.js.map",
     "787.2143a59b.chunk.js.map": "/ultra-high-tech/static/js/787.2143a59b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f561daaf.css",
-    "static/js/main.eb8a4ca7.js"
+    "static/css/main.aadcca26.css",
+    "static/js/main.8bc18f30.js"
   ]
 }
