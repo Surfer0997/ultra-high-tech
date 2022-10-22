@@ -1,4 +1,64 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product * {
+    max-width: 25ch;
+    margin-inline: auto;
+}
 .product img{
     width: 60%;
+    margin-inline: auto;
+    height: 218px;
+    width: 146px;
+}
+.author {
+    font-style: italic;
+}
+.product form {
+    position: relative;
+}
+.input-wrap {
+    display: flex;
+    margin-top: .5rem;
+    justify-content: space-between;
 }
 
+.input-wrap input {
+    width: 50%;
+    text-align: center;
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid lightgray;
+    outline: 0;
+    font-size: 1rem;
+    background: transparent;
+    transition: 0.2s;
+}
+.input-wrap input:focus {
+    font-size: 1.3rem;
+    border-bottom: 2px solid black;
+}
+.input-wrap button {
+    width: 50%;
+    position: relative;
+    background: transparent;
+    color: black;
+    font-weight: 600;
+    box-sizing: border-box;
+    border: none;
+    border: solid var(--color-blue) 2px;
+    box-shadow: 1px 1px 5px black;
+}
+.input-wrap button:focus {
+    outline: none;
+    border-bottom: solid var(--color-yellow) 2px;
+}
+
+.input-wrap button:hover {
+    
+}
+.input-wrap button:active {
+    
+}

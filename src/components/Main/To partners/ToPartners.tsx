@@ -51,6 +51,7 @@ export const ToPartners = () => {
           className={styles.cardImage}
           src="https://www.piraeusbank.com/sites/bulgaria/bg/PublishingImages/LearnMore/CCV.png"
           alt="Send photos of your credit card backside to skammamont@neskam.skam"
+          height={'179px'}
         />
         <p>
           Never heard about SSL or HTTPS? You are on the right way! Many stupid

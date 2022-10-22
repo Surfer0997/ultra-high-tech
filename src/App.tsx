@@ -18,10 +18,10 @@ function App() {
           <Cart/>
           <main>
             <Routes>
-              <Route index element={<Shop />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/partners" element={<ToPartners />} />
+              <Route path="*" element={<Shop />} />
             </Routes>
           </main>
           <Footer />
