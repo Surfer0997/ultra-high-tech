@@ -25,21 +25,21 @@ export const cartSlice = createSlice({
       } else {
         if (state.cart[existingItemIndex].amount + amount <= 0) {
           state.cart = state.cart.filter(item => item.id !== id);
-          return;
+        } else {
+          const updatedItem = {
+            ...state.cart[existingItemIndex],
+            amount: state.cart[existingItemIndex].amount + amount,
+          };
+          state.cart = [
+            ...state.cart.slice(0, existingItemIndex),
+            updatedItem,
+            ...state.cart.slice(existingItemIndex + 1),
+          ];
         }
-        const updatedItem = {
-          ...state.cart[existingItemIndex],
-          amount: state.cart[existingItemIndex].amount + amount,
-        };
-        state.cart = [
-          ...state.cart.slice(0, existingItemIndex),
-          updatedItem,
-          ...state.cart.slice(existingItemIndex + 1),
-        ];
       }
       /* COUNT TOTAL */
       state.total = state.cart.reduce(
-        (acc, item) => item.amount * item.price,
+        (acc, item) => acc + item.amount * item.price,
         0
       );
     },
