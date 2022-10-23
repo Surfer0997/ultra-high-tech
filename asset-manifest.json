@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ultra-high-tech/static/css/main.ea96a9f3.css",
-    "main.js": "/ultra-high-tech/static/js/main.db769805.js",
+    "main.js": "/ultra-high-tech/static/js/main.87c50b4d.js",
     "static/js/787.2143a59b.chunk.js": "/ultra-high-tech/static/js/787.2143a59b.chunk.js",
     "static/media/brain.svg": "/ultra-high-tech/static/media/brain.1aa36e0cc22bdff863e6b2e33a853ab9.svg",
     "static/media/id-card.svg": "/ultra-high-tech/static/media/id-card.8a8fd28053f3e19e8f756c12946a0da9.svg",
@@ -16,11 +16,11 @@
     "static/media/github.svg": "/ultra-high-tech/static/media/github.2c999a39b8790dee4083014a154d594c.svg",
     "index.html": "/ultra-high-tech/index.html",
     "main.ea96a9f3.css.map": "/ultra-high-tech/static/css/main.ea96a9f3.css.map",
-    "main.db769805.js.map": "/ultra-high-tech/static/js/main.db769805.js.map",
+    "main.87c50b4d.js.map": "/ultra-high-tech/static/js/main.87c50b4d.js.map",
     "787.2143a59b.chunk.js.map": "/ultra-high-tech/static/js/787.2143a59b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea96a9f3.css",
-    "static/js/main.db769805.js"
+    "static/js/main.87c50b4d.js"
   ]
 }
