@@ -9,6 +9,8 @@ const BURGER_STYLE = {
     position: 'relative',
     width: '2.5rem',
     height: '30px',
+    right: '.6rem',
+    marginTop: '4px',
   },
   bmBurgerBars: {
     background: '#fff',
@@ -69,7 +71,8 @@ export const Header = () => {
         <Link to="/" className={styles.header}>
           <h2>InsaneStore</h2>
         </Link>
-        <a href="#" className={styles.cart} onClick={dispatch.bind(null, toggleIsCartVisible())}>
+      <div className={styles.block}>
+      <a href="#" className={styles.cart} onClick={dispatch.bind(null, toggleIsCartVisible())}>
           Cart 🛒
         </a>
         <Menu styles={BURGER_STYLE} right>
@@ -89,6 +92,7 @@ export const Header = () => {
             Sign In
           </a>
         </Menu>
+      </div>
       </nav>
     </>
   );

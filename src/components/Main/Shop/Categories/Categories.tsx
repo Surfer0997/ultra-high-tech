@@ -7,6 +7,7 @@ import styles from './Categories.module.css';
 export const Categories = () => {
 
     const [isDisabled, setIsDisabled] = useState(false);
+
     const dispatch = useDispatch<any>();
     const input = useRef<HTMLInputElement | null>(null);
     const loadCategory = (category:string) => ()=> {
@@ -18,7 +19,6 @@ export const Categories = () => {
     }
 
     useEffect(()=>{
-        console.log('use effrct');
         loadCategory('detective')();
     }, []);
 
@@ -26,9 +26,11 @@ export const Categories = () => {
         e.preventDefault();
         if (input.current?.value) {
             loadCategory(input.current?.value)();
-            input.current.value = '';
+            
         }
     }
+
+
 
     return (
         <section className={styles.categories}>
@@ -37,7 +39,7 @@ export const Categories = () => {
             <DebouncedButton clickHandler={loadCategory('sport')}>For nerds</DebouncedButton>
             <DebouncedButton clickHandler={loadCategory('program')}>For programmers</DebouncedButton>
             <DebouncedButton clickHandler={loadCategory('chill')}>For brogrammers</DebouncedButton>
-            <form onSubmit={submitHandler}><input ref={input} type="text" placeholder='Own category'/><input type="submit" hidden /></form>
+            <form onSubmit={submitHandler}><input ref={input} onClick={()=>{if (input.current?.value) {input.current.value = ''}}} type="text" placeholder='Own category'/><input type="submit" hidden /></form>
         </section>
     )
 };

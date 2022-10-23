@@ -2,7 +2,7 @@ import { Card } from '../../../../UI/Card';
 import styles from './Product.module.css';
 import { createRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCartItem } from '../../../../Cart/cartSlice';
+import { updateCartItem } from '../../../../Cart/cartSlice';
 
 interface ProductProps {
   id: number;
@@ -18,11 +18,11 @@ export const Product = ({ id, title, author, imageSrc }: ProductProps) => {
   const addItemHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
     dispatch(
-      addCartItem({
+      updateCartItem({
         id: id,
         title: title,
         price: price,
-        amount: input.current?.value,
+        amount: Number(input.current?.value),
       })
     );
     if (input.current?.value) {
@@ -31,7 +31,7 @@ export const Product = ({ id, title, author, imageSrc }: ProductProps) => {
   };
 
   const price =
-    title.length + Number(((author.length * 2 + title.length) / 100).toFixed(2));
+    (title?.toString().length + Number((( author ? author?.toString().length * 2 : 0 + title?.toString().length) / 100))).toFixed(2);
 
   return (
     <Card className={styles.product}>
