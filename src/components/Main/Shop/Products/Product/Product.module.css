@@ -53,13 +53,15 @@
 .input-wrap button {
     width: 50%;
     position: relative;
-    background: transparent;
-    color: black;
+    background: linear-gradient(to left, #743ad5, #fc1bab);
+    color: aliceblue;
     font-weight: 600;
     box-sizing: border-box;
-    border: none;
-    border: solid lightgray 2px;
-    box-shadow: 2px 2px 5px black;
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to left, #743ad5, #fc1bab);
+    box-shadow: 2px 2px 5px #d53a9d;
     transition: .1s;
 }
 .input-wrap button:focus {
