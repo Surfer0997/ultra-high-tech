@@ -7,11 +7,13 @@ import { ToPartners } from './components/Main/To partners/ToPartners';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Shop } from './components/Main/Shop/Shop';
 import { Cart } from './components/Cart/Cart';
+import { ThemeSwitch } from './components/UI/ThemeSwitch';
 
 function App() {
   return (
     <>
       <Background />
+      <ThemeSwitch/>
       <Router>
         <div className="App">
           <Header />

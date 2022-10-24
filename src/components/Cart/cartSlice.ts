@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     updateCartItem: (state, action) => {
-      const { id, amount, price } = action.payload;
+      const { id, amount} = action.payload;
       const existingItemIndex = state.cart.findIndex(item => id === item.id);
       if (existingItemIndex < 0) {
         state.cart = [...state.cart, action.payload];
