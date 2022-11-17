@@ -1,20 +1,20 @@
-import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { memo, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { DebouncedButton } from '../../../UI/DebouncedButton';
-import { getCategoryBooks } from '../Products/productsSlice';
+import { AppDispatch } from '../../../../store/store';
+import { Button } from '../../../UI/Button';
+import { getBooks } from '../Products/productsSlice';
 import styles from './Categories.module.css';
 
 export const Categories = () => {
   const [isDisabled, setIsDisabled] = useState(false);
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<AppDispatch>();
   
   const input = useRef<HTMLInputElement | null>(null);
 
   const loadCategory = (category: string) => () => {
     if (!isDisabled) {
       setIsDisabled(true);
-      dispatch(getCategoryBooks(category));
+      dispatch(getBooks({category}));
       setTimeout(() => setIsDisabled(false), 800);
     }
   };
@@ -32,21 +32,21 @@ export const Categories = () => {
 
   return (
     <section className={styles.categories}>
-      <DebouncedButton clickHandler={loadCategory('cats')}>
+      <Button clickHandler={loadCategory('cats')}>
         For cats
-      </DebouncedButton>
-      <DebouncedButton clickHandler={loadCategory('dogs')}>
+      </Button>
+      <Button clickHandler={loadCategory('dogs')}>
         For dogs
-      </DebouncedButton>
-      <DebouncedButton clickHandler={loadCategory('sport')}>
+      </Button>
+      <Button clickHandler={loadCategory('sport')}>
         For nerds
-      </DebouncedButton>
-      <DebouncedButton clickHandler={loadCategory('program')}>
+      </Button>
+      <Button clickHandler={loadCategory('program')}>
         For programmers
-      </DebouncedButton>
-      <DebouncedButton clickHandler={loadCategory('chill')}>
+      </Button>
+      <Button clickHandler={loadCategory('chill')}>
         For brogrammers
-      </DebouncedButton>
+      </Button>
       <form onSubmit={submitHandler}>
         <input
           ref={input}

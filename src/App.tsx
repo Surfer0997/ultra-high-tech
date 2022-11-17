@@ -4,7 +4,12 @@ import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { AboutUs } from './components/Main/AboutUs/AboutUs';
 import { ToPartners } from './components/Main/To partners/ToPartners';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { Shop } from './components/Main/Shop/Shop';
 import { Cart } from './components/Cart/Cart';
 import { ThemeSwitch } from './components/UI/ThemeSwitch';
@@ -20,12 +25,17 @@ function App() {
           <Cart />
           <main>
             <Routes>
-              <Route path="/ultra-high-tech/">
-                <Route path="/ultra-high-tech/about" element={<AboutUs />} />
-                <Route path="/ultra-high-tech/shop" element={<Shop />} />
-                <Route path="/ultra-high-tech/partners" element={<ToPartners />} />
-                <Route path="/ultra-high-tech/*" element={<Shop />} />
-              </Route>
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route
+                  path="/partners"
+                  element={<ToPartners />}
+                />
+                <Route path="/" element={<Shop />} />
+                <Route
+                  path="*"
+                  element={<Navigate to="/"/>}
+                />
             </Routes>
           </main>
           <Footer />

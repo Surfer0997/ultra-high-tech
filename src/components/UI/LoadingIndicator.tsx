@@ -1,9 +1,10 @@
-const colorAccent = getComputedStyle(document.documentElement)
-.getPropertyValue('--color-blue');
-
+import { useRef } from "react";
 
 export const LoadingIndicator = () => {
- 
+
+  const colorAccent = useRef(getComputedStyle(document.documentElement)
+  .getPropertyValue('--color-blue')).current;
+
   return (
     <svg
       width="100px"

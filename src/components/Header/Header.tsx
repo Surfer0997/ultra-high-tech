@@ -44,16 +44,16 @@ export const Header = () => {
   return (
     <>
       <nav className={styles.nav}>
-        <Link to="/ultra-high-tech/" className={styles.header}>
+        <Link to="/" className={styles.header}>
           <h2>InsaneStore</h2>
         </Link>
-        <Link to="/ultra-high-tech/about" className={styles['nav-link']}>
+        <Link to="/about" className={styles['nav-link']}>
           About us
         </Link>
-        <Link to="/ultra-high-tech/shop" className={styles['nav-link']}>
+        <Link to="/shop" className={styles['nav-link']}>
           Our products
         </Link>
-        <Link to="/ultra-high-tech/partners" className={styles['nav-link']}>
+        <Link to="/partners" className={styles['nav-link']}>
           To partners
         </Link>
         <a href="#footer" className={styles['nav-link']}>
@@ -68,7 +68,7 @@ export const Header = () => {
       </nav>
 
       <nav className={styles['nav-mobile']}>
-        <Link to="/ultra-high-tech/" className={styles.header}>
+        <Link to="/" className={styles.header}>
           <h2>InsaneStore</h2>
         </Link>
       <div className={styles.block}>
@@ -76,13 +76,13 @@ export const Header = () => {
           Cart 🛒
         </a>
         <Menu styles={BURGER_STYLE} right>
-          <Link to="/ultra-high-tech/about" className={styles['nav-link']}>
+          <Link to="/about" className={styles['nav-link']}>
             About us
           </Link>
-          <Link to="/ultra-high-tech/shop" className={styles['nav-link']}>
+          <Link to="/shop" className={styles['nav-link']}>
             Our products
           </Link>
-          <Link to="/ultra-high-tech/partners" className={styles['nav-link']}>
+          <Link to="/partners" className={styles['nav-link']}>
             To partners
           </Link>
           <a href="#footer" className={styles['nav-link']}>

@@ -3,7 +3,7 @@ interface DebouncedButtonProps {
   clickHandler?: (arg?:any) => void;
 }
 
-export const DebouncedButton = (props: DebouncedButtonProps) => {
+export const Button = (props: DebouncedButtonProps) => {
 
   const clickHandler = () => {
       if (props.clickHandler) props.clickHandler();

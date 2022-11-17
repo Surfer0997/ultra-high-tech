@@ -1,0 +1,33 @@
+.controls {
+    margin-top: 1rem;
+}
+.buttonSpan {
+    transition: .2s;
+    display: block;
+}
+.controls button {
+    cursor: pointer;
+    color: aliceblue;
+    margin: 0 .5rem;
+    font-size: medium   ;
+    width: max(2rem, 30%);
+    background: none;
+    border: none;
+    border-bottom: solid var(--color-blue) 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-image: linear-gradient(0deg, var(--color-blue) 0%, transparent 70%);
+}
+.controls button:hover {
+    background-image: linear-gradient(0deg, var(--color-blue) 0%, transparent 75%);
+}
+.controls button:hover .buttonSpan{
+    transform:translateY(-3px);
+}
+.controls button:active {
+    box-shadow: 0 1px 0px 0px var(--color-blue);
+}
+
+.controls button svg {
+    margin: 0 .5rem;
+}
