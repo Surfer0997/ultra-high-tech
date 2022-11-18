@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import { Form1 } from '../Forms/Form1/Form1';
 import { Modal } from '../UI/Modal';
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
@@ -22,7 +23,6 @@ export const Cart = () => {
       ))}
     </ul>
   );
-        const totalAmount = 0.00;
         const hasItems = true;
 
   return (
@@ -49,6 +49,12 @@ export const Cart = () => {
         {hasItems && <button className={styles.button}>Next step</button>}
       </div>
 
+
+        <Form1/>
+        <Form1/>
+        <Form1/>
+        <Form1/>
+        
         </Modal>
       )}
     </>

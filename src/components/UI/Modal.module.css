@@ -9,19 +9,36 @@
 }
 
 .modal {
+  overflow-y: auto;
   color: black;
   position: fixed;
-  top: 20vh;
+  top: 15vh;
   left: calc(15% - 1rem);
   width: 70%;
+  max-height: 70%;
   background-color: white;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: slide-down 500ms ease-out forwards;
+
+  scrollbar-width: thin;          /* "auto" или "thin" */
+  scrollbar-color: var(--color-blue) #fff;   /* цвет бегунка и зоны отслеживания */
+}
+.modal::-webkit-scrollbar {
+  width: 12px;               /* ширина всей полосы прокрутки */
 }
 
+.modalody::-webkit-scrollbar-track {
+  background: #fff;        /* цвет зоны отслеживания */
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue);    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
+  border: 0px solid black;  /* отступ вокруг бегунка */
+}
 /* @media (min-width: 768px) {
   .modal {
     width: 40rem;
