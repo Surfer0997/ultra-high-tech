@@ -1,0 +1,38 @@
+:root {
+  --color-blue:#03b7cf;
+  --color-yellow: #f5d001;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: aliceblue;
+  scrollbar-width: thin;          /* "auto" или "thin" */
+  scrollbar-color: var(--color-blue) black;   /* цвет бегунка и зоны отслеживания */
+}
+body::-webkit-scrollbar {
+  width: 12px;               /* ширина всей полосы прокрутки */
+}
+
+body::-webkit-scrollbar-track {
+  background: black;        /* цвет зоны отслеживания */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue);    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
+  border: 0px solid black;  /* отступ вокруг бегунка */
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

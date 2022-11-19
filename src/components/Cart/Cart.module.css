@@ -1,0 +1,99 @@
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 20rem;
+  overflow: auto;
+}
+.cart-items::before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 70%;
+    margin: .5rem 0 1.5rem;
+    background: linear-gradient(to right, #000, #fff);
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.❌{
+    opacity: 1;
+    color:#00000075;
+    width: 2rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    transition: .1s;
+    background: aliceblue;
+}
+.❌:hover {
+    background: #00000015;
+}
+.❌:active {
+    box-shadow: 0px 0px 5px #00000074;
+}
+.❌::after {
+    font-size: 1.5rem;
+    display: inline-block;
+    content: "\00d7";
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+/* EXP */
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    gap: 1rem;
+  }
+
+  @media (max-width: 418px) {
+    .actions {
+      flex-direction: column;
+      gap: .3rem;
+    }
+  }
+
+  .actions button {
+    font: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border: solid 1px purple;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    margin-left: 0rem;
+    transition: .2s;
+  }
+  
+  .actions button:hover {
+    background-color: #47035d;
+
+    color: aliceblue;
+  }
+  .actions button:active {
+    box-shadow: 0px 0px 3px black;
+  }
+  
+  .actions .button--alt {
+    color: #6b068a;
+  }
+  
+  .actions .button {
+    background: rgb(3,183,207);
+background: linear-gradient(315deg, var(--color-blue) 50%, var(--color-yellow) 50%);
+    color: black;
+  }
+  

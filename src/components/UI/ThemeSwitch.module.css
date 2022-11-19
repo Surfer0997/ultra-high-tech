@@ -1,0 +1,33 @@
+.🔆 {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 1.75rem;
+    right: 2.5%;
+    background: none;
+    border: solid 2px var(--color-blue);
+    opacity: .7;
+    transform: translateX(-50%);
+    transition: .1s;
+}
+.🔆:hover {
+    box-shadow: 0 0 5px aliceblue;
+}
+.🔆:active {
+    box-shadow: 0 0 10px aliceblue;
+}
+@media (max-width: 480px) {
+    .🔆 {
+      right: -2.9%;
+      top: 1rem;
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 1170px) {
+    .🔆 {
+        right: -1.5%;
+      }
+    .🔆 {
+        top: 1.2rem;
+      }
+  }

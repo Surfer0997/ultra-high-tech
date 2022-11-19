@@ -1,0 +1,77 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product * {
+    max-width: 25ch;
+    margin-inline: auto;
+}
+.product img{
+    width: 60%;
+    margin-inline: auto;
+    height: 218px;
+    width: 146px;
+}
+.author {
+    font-style: italic;
+    margin-top: .5rem;
+    margin-bottom: auto;
+}
+.product form {
+    position: relative;
+}
+.input-wrap {
+    display: flex;
+    margin-top: .5rem;
+    justify-content: space-between;
+}
+
+.input-wrap input {
+    width: 50%;
+    text-align: center;
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid lightgray;
+    outline: 0;
+    font-size: 1rem;
+    background: transparent;
+    transition: 0.2s;
+}
+.input-wrap input:focus {
+    font-size: 1.3rem;
+    border-bottom: 2px solid black;
+}
+.input-wrap input:focus-visible {
+    font-size: 1.3rem;
+    border-bottom: 2px solid black;
+}
+.input-wrap input:focus-within {
+    font-size: 1.3rem;
+    border-bottom: 2px solid black;
+}
+.input-wrap button {
+    width: 50%;
+    position: relative;
+    background: linear-gradient(to left, #743ad5, #fc1bab);
+    color: aliceblue;
+    font-weight: 600;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to left, #743ad5, #fc1bab);
+    box-shadow: 2px 2px 5px #d53a9d;
+    transition: .1s;
+}
+.input-wrap button:focus {
+    outline: none;
+}
+
+.input-wrap button:hover {
+    box-shadow: 1px 1px 5px black;
+}
+.input-wrap button:active {
+    transform: scale(1.01);
+    box-shadow: 1px 1px 5px black;
+}

@@ -1,0 +1,77 @@
+[33mcommit b131f08ba9e25ab119072171a8db400718086c4b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Sat Nov 19 23:28:35 2022 +0200
+
+    Cart refactoring + forms progress
+
+[33mcommit 7670e6fa0f0b7eb7f104c3c4448cb05335e6eeaf[m[33m ([m[1;31morigin/formBgScrolls[m[33m, [m[1;32mformBgScrolls[m[33m)[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Fri Nov 18 23:25:17 2022 +0200
+
+    Form, scrolls, bg fix
+
+[33mcommit 94ddcd44ce24101e87b48d6b5c747bb85dae539f[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Thu Nov 17 18:34:42 2022 +0200
+
+    Router fix, store pages controls, fixed loader color
+
+[33mcommit d9065391df620cdb848173bde6d2ebc18416f794[m[33m ([m[1;32mrouter-fix[m[33m)[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Fri Nov 11 09:15:16 2022 +0200
+
+    Router fix
+
+[33mcommit 4b417c3e756092f3af04599533c7b0ee200a2e0e[m[33m ([m[1;31morigin/recolour[m[33m)[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Mon Oct 24 22:56:33 2022 +0300
+
+    Product button re-design
+
+[33mcommit 55bad8f9725b3c29c1fa12916c993fde733a6130[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Mon Oct 24 22:49:08 2022 +0300
+
+    Change color scheme, cookies, bg upgrade, axios interceptor
+
+[33mcommit 7e6d1d1626f0163f42240c430ee8c4d5e1b806a8[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Sun Oct 23 23:57:18 2022 +0300
+
+    Cart total bugfix
+
+[33mcommit a031b31136ce20b984a86addb45e233b7c7317c6[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Sun Oct 23 23:51:08 2022 +0300
+
+    Cart, products, minor styles and bugfixes
+
+[33mcommit 545782c14867c36c9e1950d7e1d5757b856a2283[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Sun Oct 23 00:28:47 2022 +0300
+
+    Minor UI update, bug fix
+
+[33mcommit 98e1aeb3647d660b034ffaee73627a090fea40ac[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Fri Oct 21 23:23:27 2022 +0300
+
+    Fetching books, book search, cart improvement, mobile nav fix
+
+[33mcommit 8016f587d0ea4effe4977de3b370551f01fbb98a[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Thu Oct 20 20:42:16 2022 +0300
+
+    dsfdsf
+
+[33mcommit 050eaede347732a98746458abeb5c6a2ace46d83[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Thu Oct 20 20:35:19 2022 +0300
+
+    Deploy
+
+[33mcommit b5451ca9ad96933438abd67de733f8fc9bada492[m
+Author: Surfer0997 <artanagibaet228@gmail.com>
+Date:   Tue Oct 11 16:14:54 2022 +0300
+
+    Initialize project using Create React App
