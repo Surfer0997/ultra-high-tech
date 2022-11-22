@@ -5,7 +5,11 @@ import styles from './Cart.module.css';
 import CartItem from './CartItem';
 import { toggleIsCartVisible } from './cartSlice';
 
-export const CartContent = () => {
+interface CartContentProps {
+  onShowForm: ()=>void
+}
+
+export const CartContent = ({onShowForm}:CartContentProps) => {
     const {cart, total} = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
   
@@ -40,7 +44,7 @@ export const CartContent = () => {
           Close
         </button>
         {/* {hasItems && <button className={styles.button} onClick={props.onOpenOrderForm}>Далi</button>} */}
-        {cart.length>0 && <button className={styles.button}>Next step</button>}
+        {cart.length>0 && <button className={styles.button} onClick={onShowForm}>Next step</button>}
       </div>
     </>
   );

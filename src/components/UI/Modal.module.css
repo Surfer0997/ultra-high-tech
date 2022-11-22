@@ -32,6 +32,7 @@
 
 .modal::-webkit-scrollbar-track {
   background: #fff;        /* цвет зоны отслеживания */
+  border-radius: 5px; 
 }
 
 .modal::-webkit-scrollbar-thumb {

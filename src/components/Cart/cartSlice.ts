@@ -43,9 +43,8 @@ export const cartSlice = createSlice({
         0
       );
     },
-    toggleIsCartVisible: state => {
+    toggleIsCartVisible: (state) => {
       state.cartIsVisible = !state.cartIsVisible;
-      console.log(state.cartIsVisible);
     },
   },
 });

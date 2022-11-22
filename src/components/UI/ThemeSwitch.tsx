@@ -34,7 +34,7 @@ export const ThemeSwitch = () => {
     if (cookies.theme) {
       changeThemeHandler(cookies.theme);
     }
-  }, []);
+  }, [cookies.theme]);
 
   const themeChangeHandler = () => {
     let newTheme:string = '';
