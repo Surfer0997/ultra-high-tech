@@ -1,9 +1,11 @@
 import styles from './Form1.module.css';
 import { useState } from 'react';
-import { useForm,  } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FieldError } from 'react-hook-form/dist/types';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { sendFirstForm } from '../orderFormSlice';
 
 interface IFormInputs {
   firstName: string;
@@ -28,6 +30,9 @@ const schema = yup
   .required();
 
 export function Form1() {
+
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -41,11 +46,14 @@ export function Form1() {
   formErrors[errorKey] = rawFormErrors[errorKey as keyof typeof rawFormErrors];
 
   const [data, setData] = useState('');
-  
-  console.log(formErrors?.firstName?.message);
 
+  console.log(formErrors?.firstName?.message);
+  const mySubmitHandler = (data:IFormInputs) => {
+    setData(JSON.stringify(data));
+    dispatch(sendFirstForm(data));
+  }
   return (
-    <form className={styles.form1} onSubmit={handleSubmit(data => setData(JSON.stringify(data)))}>
+    <form className={styles.form1} onSubmit={handleSubmit(mySubmitHandler)}>
       <h2>A little bit about you</h2>
       {/* <Controller
         name="firstName"
@@ -57,7 +65,7 @@ export function Form1() {
           />
         )}
       /> */}
-      <input className={styles.inputs} {...register("firstName")} placeholder="What's your name, sweetie?" />
+      <input className={styles.inputs} {...register('firstName')} placeholder="What's your name, sweetie?" />
       <p className={styles.invalidInput}>{formErrors?.firstName?.message}</p>
 
       <input

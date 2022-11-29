@@ -5,7 +5,7 @@ import { Header } from './components/Header/Header';
 import { AboutUs } from './components/Main/AboutUs/AboutUs';
 import { ToPartners } from './components/Main/To partners/ToPartners';
 import {
-  HashRouter as Router,
+  MemoryRouter as Router,
   Routes,
   Route,
   Navigate,

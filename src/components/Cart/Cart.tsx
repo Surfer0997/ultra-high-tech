@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import Forms from '../Forms/Forms';
+import OrderForms from '../Forms/OrderForms';
 import { Modal } from '../UI/Modal';
 import { CartContent } from './CartContent';
 import { toggleIsCartVisible } from './cartSlice';
@@ -24,7 +24,7 @@ export const Cart = () => {
     <>
       {cartIsVisible && (
         <Modal onHideCart={hideCartHandler}>
-        {isFormVisible ? <Forms/> : <CartContent onShowForm={showFormHandler}/>}
+        {isFormVisible ? <OrderForms/> : <CartContent onShowForm={showFormHandler}/>}
           
         </Modal>
       )}
