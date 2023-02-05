@@ -1,5 +1,5 @@
 import styles from './Form1.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FieldError } from 'react-hook-form/dist/types';
@@ -36,10 +36,17 @@ export function Form1() {
   const {
     register,
     handleSubmit,
-    formState: { errors: rawFormErrors },
+    setFocus,
+    formState: { errors: rawFormErrors, touchedFields: touched },
   } = useForm<IFormInputs>({
+    mode: 'onBlur',
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => {
+    setFocus("firstName");
+  }, [setFocus]);
+  console.log(touched);
 
   const formErrors: { [key: string]: undefined | FieldError } = {}; // To get only first error
   const errorKey = Object.keys(rawFormErrors)[0];
@@ -66,28 +73,28 @@ export function Form1() {
         )}
       /> */}
       <input className={styles.inputs} {...register('firstName')} placeholder="What's your name, sweetie?" />
-      <p className={styles.invalidInput}>{formErrors?.firstName?.message}</p>
+      <p className={styles.invalidInput}>{touched.firstName && formErrors?.firstName?.message}</p>
 
       <input
         className={styles.inputs}
         {...register('nickName')}
         placeholder="Please give us your super cool nickname"
       />
-      <p className={styles.invalidInput}>{formErrors?.nickName?.message}</p>
+      <p className={styles.invalidInput}>{touched.nickName && formErrors?.nickName?.message}</p>
 
       <input
         className={styles.inputs}
         {...register('email')}
         placeholder="We want to send you as much spam as we can ^-^"
       />
-      <p className={styles.invalidInput}>{formErrors?.email?.message}</p>
+      <p className={styles.invalidInput}>{touched.email && formErrors?.email?.message}</p>
 
       <input
         className={styles.inputs}
         {...register('phone')}
         placeholder="Sometimes I want somebody to call me at 3 a.m. We'll do it for you!"
       />
-      <p className={styles.invalidInput}>{formErrors?.phone?.message}</p>
+      <p className={styles.invalidInput}>{touched.phone && formErrors?.phone?.message}</p>
 
       <textarea className={styles.inputs} {...register('aboutYou')} placeholder="About you" />
       <p>{data}</p>

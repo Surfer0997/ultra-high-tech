@@ -48,7 +48,7 @@ export const Footer = () => {
         </li>
       </ul>
       <span className={styles.copyright} id="footer">
-        All rights are plagiated, 2022. ©
+        All rights are plagiated, {new Date().getFullYear()}. ©
       </span>
     </footer>
   );

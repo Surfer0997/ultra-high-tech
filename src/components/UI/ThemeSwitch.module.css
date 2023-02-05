@@ -9,6 +9,7 @@
     opacity: .7;
     transform: translateX(-50%);
     transition: .1s;
+    cursor: pointer;
 }
 .🔆:hover {
     box-shadow: 0 0 5px aliceblue;

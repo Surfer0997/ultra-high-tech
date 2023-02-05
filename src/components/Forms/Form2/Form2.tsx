@@ -17,14 +17,14 @@ const schema = yup.object({
   }).required();
 
 export function Form2() {
-  const { register, handleSubmit, formState:{ errors } } = useForm<IFormInputs>({
+  const { register, handleSubmit, formState:{ errors, touchedFields } } = useForm<IFormInputs>({
     resolver: yupResolver(schema)
   });
   const [data, setData] = useState("");
 
   return (
     <form className={styles.form1} onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
-      <h2>A little bit about you</h2>
+      <h2>Now let's fill your full address for stalkers</h2>
       <input className={styles.inputs} {...register("firstName")} placeholder="What's your name, sweetie?" />
       <p className={styles.invalidInput}>{errors.firstName?.message && 'Введи будь-ласка ім\'я, мила :)'}</p>
       <select className={styles.inputs} {...register("category", { required: true })}>
