@@ -3,6 +3,8 @@ import styles from './Product.module.css';
 import { createRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateCartItem } from '../../../../Cart/cartSlice';
+import { showToast } from '../../../../../helpers/showToast';
+import { useCookies } from 'react-cookie';
 
 interface ProductProps {
   id: number;
@@ -14,6 +16,8 @@ interface ProductProps {
 export const Product = ({ id, title, author, imageSrc }: ProductProps) => {
   const input = createRef<HTMLInputElement>();
   const dispatch = useDispatch();
+
+  const [cookies] = useCookies();
 
   const addItemHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -28,6 +32,7 @@ export const Product = ({ id, title, author, imageSrc }: ProductProps) => {
     if (input.current?.value) {
       input.current.value = '1';
     }
+    showToast('INFO', 'Successfully added!');
   };
 
   const price =
@@ -38,9 +43,8 @@ export const Product = ({ id, title, author, imageSrc }: ProductProps) => {
       <img src={imageSrc} alt="" />
       <h3>{title}</h3>
       <span className={styles.author}>by {author}</span>
-      <p>only for {price}</p>
+      <p className={styles.priceLine}>only for&nbsp;&nbsp;<span className={`${styles.highlight} ${cookies.theme === 'white' ? styles.highlightWhiteFix : ''}`}>&nbsp;&nbsp;{price}&nbsp;&nbsp;</span></p>
       <form onSubmit={addItemHandler}>
-        <label htmlFor="amount">Enter amount:</label>
         <section className={styles['input-wrap']}>
           <input type="number" ref={input} min="1" step="1" defaultValue="1" />
           <button type="submit">Add to cart</button>

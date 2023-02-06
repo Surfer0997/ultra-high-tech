@@ -4,7 +4,7 @@ import { useCookies } from 'react-cookie';
 import { Theme } from '../../UI/ThemeSwitch';
 
 export const AboutUs = () => {
-  const [cookies, setCookie] = useCookies();
+  const [cookies] = useCookies();
   return (
     <article className={styles['about-us']}>
       <h2>Two words about <span className={styles.highlight} style={ cookies.theme === Theme.white ? {color: 'black'} : {}}>InsaneStore</span></h2>

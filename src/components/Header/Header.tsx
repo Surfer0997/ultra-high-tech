@@ -3,6 +3,9 @@ import styles from './Header.module.css';
 import { slide as Menu } from 'react-burger-menu';
 import { useDispatch } from 'react-redux';
 import { toggleIsCartVisible } from '../Cart/cartSlice';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { showToast } from '../../helpers/showToast';
 
 const BURGER_STYLE = {
   bmBurgerButton: {
@@ -34,8 +37,8 @@ const BURGER_STYLE = {
   },
   bmOverlay: {
     left: '0',
-    top: '0'
-  }
+    top: '0',
+  },
 };
 
 export const Header = () => {
@@ -43,6 +46,7 @@ export const Header = () => {
 
   return (
     <>
+    <ToastContainer/>
       <nav className={styles.nav}>
         <Link to="/" className={styles.header}>
           <h2>InsaneStore</h2>
@@ -59,10 +63,10 @@ export const Header = () => {
         <a href="#footer" className={styles['nav-link']}>
           Contacts
         </a>
-        <a href="#" className={styles['nav-link']}>
+        <a href="#1" className={styles['nav-link']} onClick={()=>showToast('WARNING', 'Not available yet :(')}>
           Sign In
         </a>
-        <a href="#" className={styles['nav-link']} onClick={dispatch.bind(null, toggleIsCartVisible())}>
+        <a href="#2" className={styles['nav-link']} onClick={dispatch.bind(null, toggleIsCartVisible())}>
           Cart 🛒
         </a>
       </nav>
@@ -71,28 +75,28 @@ export const Header = () => {
         <Link to="/" className={styles.header}>
           <h2>InsaneStore</h2>
         </Link>
-      <div className={styles.block}>
-      <a href="#" className={styles.cart} onClick={dispatch.bind(null, toggleIsCartVisible())}>
-          Cart 🛒
-        </a>
-        <Menu styles={BURGER_STYLE} right>
-          <Link to="/about" className={styles['nav-link']}>
-            About us
-          </Link>
-          <Link to="/shop" className={styles['nav-link']}>
-            Our products
-          </Link>
-          <Link to="/partners" className={styles['nav-link']}>
-            To partners
-          </Link>
-          <a href="#footer" className={styles['nav-link']}>
-            Contacts
+        <div className={styles.block}>
+          <a href="#3" className={styles.cart} onClick={dispatch.bind(null, toggleIsCartVisible())}>
+            Cart 🛒
           </a>
-          <a href="#" className={styles['nav-link']}>
-            Sign In
-          </a>
-        </Menu>
-      </div>
+          <Menu styles={BURGER_STYLE} right>
+            <Link to="/about" className={styles['nav-link']}>
+              About us
+            </Link>
+            <Link to="/shop" className={styles['nav-link']}>
+              Our products
+            </Link>
+            <Link to="/partners" className={styles['nav-link']}>
+              To partners
+            </Link>
+            <a href="#footer" className={styles['nav-link']}>
+              Contacts
+            </a>
+            <a href="#4" className={styles['nav-link']}>
+              Sign In
+            </a>
+          </Menu>
+        </div>
       </nav>
     </>
   );
