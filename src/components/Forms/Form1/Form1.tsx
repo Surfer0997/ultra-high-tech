@@ -16,15 +16,16 @@ interface IFormInputs {
 }
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  
 const schema = yup
   .object({
-    firstName: yup.string().required("Введи будь-ласка ім'я, зірочка :)"),
-    nickName: yup.string().required("Я дуже хочу знати твоє круте таємне ім'я (っ＾▿＾)っ"),
+    firstName: yup.string().required("Please enter your name, shiny star :)"),
+    nickName: yup.string().required("I want to know your cool sercet name so hard (っ＾▿＾)っ (That\'s what she said)"),
     email: yup
       .string()
-      .email('( ͡❛ ͜ʖ ͡❛) На цю адресу не вдасться вислати рекламу Оріфлейм')
-      .required('( ͡❛ ͜ʖ ͡❛) Дай хоч глянути'),
-    phone: yup.string().matches(phoneRegExp, 'Ні, цей номер не продати шахраям :((('),
+      .email('( ͡❛ ͜ʖ ͡❛) We can\'t send Oriflame adverts to this address')
+      .required('( ͡❛ ͜ʖ ͡❛) Lemme just take a look'),
+    phone: yup.string().matches(phoneRegExp, 'No, we can\'t sell this number to frauds :((('),
     aboutYou: yup.string(),
   })
   .required();
@@ -55,6 +56,7 @@ export function Form1() {
   const [data, setData] = useState('');
 
   console.log(formErrors?.firstName?.message);
+
   const mySubmitHandler = (data:IFormInputs) => {
     setData(JSON.stringify(data));
     dispatch(sendFirstForm(data));
@@ -62,6 +64,7 @@ export function Form1() {
   return (
     <form className={styles.form1} onSubmit={handleSubmit(mySubmitHandler)}>
       <h2>A little bit about you</h2>
+
       {/* <Controller
         name="firstName"
         control={control}
@@ -97,8 +100,8 @@ export function Form1() {
       <p className={styles.invalidInput}>{touched.phone && formErrors?.phone?.message}</p>
 
       <textarea className={styles.inputs} {...register('aboutYou')} placeholder="About you" />
-      <p>{data}</p>
-      <input className={`${styles.inputs} ${styles.submit}`} type="submit" value="Final step" />
+      
+      <input className={`${styles.inputs} ${styles.submit}`} type="submit" value="Next step" />
     </form>
   );
 }

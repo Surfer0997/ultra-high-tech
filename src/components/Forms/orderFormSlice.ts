@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { showToast } from "../../helpers/showToast";
+import { toggleIsCartVisible } from "../Cart/cartSlice";
 
 const initialState = {
     currentForm: 1,
@@ -10,18 +12,35 @@ const initialState = {
         aboutYou:'',
     },
     secondForm: {
-
+        country: '',
+        city: '',
+        street: '',
+        category: '',
+        wishes: '',
+        house: ''
     },
-    thirdForm: {
-
-    },
+    isOrderFormVisible: false,
     isOrderFormValid: false,
 }
+
+export const submitOrder = createAsyncThunk('orderForm/submitOrder', async (_, { dispatch }) => {
+    console.log('asdasda');
+    try {
+        dispatch(sendThirdForm());
+    dispatch(toggleIsCartVisible());
+    } catch {
+        return false;
+    }
+    return true;
+});
 
 const orderFormSlice = createSlice({
     name: 'orderForm',
     initialState,
     reducers: {
+        setFormVisibility(state, action) {
+            state.isOrderFormVisible = action.payload; // T/F
+        },
         sendFirstForm(state, action) {
             state.firstForm = {...action.payload};
             state.currentForm = 2;
@@ -29,19 +48,24 @@ const orderFormSlice = createSlice({
         },
         sendSecondForm(state, action) {
             state.secondForm = {...action.payload};
-            state.currentForm = 2;
+            state.currentForm = 3;
             console.log(state.secondForm);
         },
-        sendThirdForm(state, action) {
-            state.thirdForm = {...action.payload};
-            state.currentForm = 3; // do smth with it
-            state.isOrderFormValid = true;
-            // some http request somewhere
-            console.log(state.thirdForm);
+        sendThirdForm(state) {
+            state.firstForm = initialState.firstForm;
+            state.secondForm = initialState.secondForm;
+            state.currentForm = 1;
+            state.isOrderFormVisible = false;
+            console.log('Success');
         },
+    },
+    extraReducers: builder => {
+        builder.addCase(submitOrder.fulfilled, (state, action)=>{
+            showToast('SUCCESS', 'Order is placed!');
+        })
     }
 });
 
 
-export const {sendFirstForm} = orderFormSlice.actions;
+export const {sendFirstForm, sendSecondForm, sendThirdForm, setFormVisibility} = orderFormSlice.actions;
 export default orderFormSlice.reducer;

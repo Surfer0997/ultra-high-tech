@@ -19,8 +19,6 @@ export const CartContent = ({onShowForm}:CartContentProps) => {
                   <CartItem
                   key={item.id}
                   item={item}
-                  onAdd={console.log}
-                  onRemove={console.log}
                 />
         ))}
       </ul>

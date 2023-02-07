@@ -1,40 +1,35 @@
 import styles from '../Form1/Form1.module.css';
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
-
-interface IFormInputs {
-    firstName: string
-    category: string
-    aboutYou: string
-  }
-
-const schema = yup.object({
-    firstName: yup.string().required(),
-    age: yup.number().positive().integer().required(),
-    aboutYou: yup.string(),
-  }).required();
+import CartItem from '../../Cart/CartItem';
+import { useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../store/store';
+import { useDispatch } from 'react-redux';
+import { sendThirdForm, submitOrder } from '../orderFormSlice';
 
 export function Form3() {
-  const { register, handleSubmit, formState:{ errors } } = useForm<IFormInputs>({
-    resolver: yupResolver(schema)
-  });
-  const [data, setData] = useState("");
+  const {cart} = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const cartItems = (
+    <ul className={styles['cart-items']}>
+      {cart.map(item => (
+                <CartItem
+                key={item.id}
+                item={item}
+              />
+      ))}
+    </ul>
+  );
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(submitOrder());
+  }
 
   return (
-    <form className={styles.form1} onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
-      <h2>A little bit about you</h2>
-      <input className={styles.inputs} {...register("firstName")} placeholder="What's your name, sweetie?" />
-      <p className={styles.invalidInput}>{errors.firstName?.message && 'Введи будь-ласка ім\'я, мила :)'}</p>
-      <select className={styles.inputs} {...register("category", { required: true })}>
-        <option value="">Select...</option>
-        <option value="A">Option A</option>
-        <option value="B">Option B</option>
-      </select>
-      <textarea className={styles.inputs} {...register("aboutYou")} placeholder="About you" />
-      <p>{data}</p>
-      <input className={`${styles.inputs} ${styles.submit}`} type="submit" value="Final step" />
+    <form className={styles.form1} onSubmit={handleSubmit}>
+      <h2>Confirm the order</h2>
+      {cartItems}
+     
+      <input className={`${styles.inputs} ${styles.submit}`} type="submit" value="Confirm" />
     </form>
   );
 }

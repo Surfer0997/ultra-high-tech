@@ -4,8 +4,6 @@ import { cartItem, updateCartItem } from './cartSlice';
 
 interface CartItemProps {
   item: cartItem;
-  onRemove: (id: number) => void;
-  onAdd: (item: cartItem) => void;
 }
 
 const CartItem = (props: CartItemProps) => {
@@ -22,8 +20,8 @@ const CartItem = (props: CartItemProps) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: 1 }))}>+</button>
         <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: -1 }))}>−</button>
+        <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: 1 }))}>+</button>
       </div>
     </li>
   );
