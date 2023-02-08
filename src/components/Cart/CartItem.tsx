@@ -20,8 +20,8 @@ const CartItem = (props: CartItemProps) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: -1 }))}>−</button>
-        <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: 1 }))}>+</button>
+        <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: -1 }))} type="button">−</button>
+        <button onClick={dispatch.bind(null, updateCartItem({ ...props.item, amount: 1 }))} type="button">+</button>
       </div>
     </li>
   );

@@ -6,29 +6,29 @@ import { useDispatch } from 'react-redux';
 import { sendThirdForm, submitOrder } from '../orderFormSlice';
 
 export function Form3() {
-  const {cart} = useSelector((state: RootState) => state.cart);
+  const { cart, total } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch<AppDispatch>();
 
   const cartItems = (
     <ul className={styles['cart-items']}>
       {cart.map(item => (
-                <CartItem
-                key={item.id}
-                item={item}
-              />
+        <CartItem key={item.id} item={item} />
       ))}
     </ul>
   );
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(submitOrder());
-  }
+  };
 
   return (
     <form className={styles.form1} onSubmit={handleSubmit}>
       <h2>Confirm the order</h2>
       {cartItems}
-     
+      <div className={styles.total}>
+        <span>Total</span>
+        <span>{total.toFixed(2)}</span>
+      </div>
       <input className={`${styles.inputs} ${styles.submit}`} type="submit" value="Confirm" />
     </form>
   );

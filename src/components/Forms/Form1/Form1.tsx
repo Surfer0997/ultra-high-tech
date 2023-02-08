@@ -6,6 +6,8 @@ import { FieldError } from 'react-hook-form/dist/types';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { sendFirstForm } from '../orderFormSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 interface IFormInputs {
   firstName: string;
@@ -38,6 +40,7 @@ export function Form1() {
     register,
     handleSubmit,
     setFocus,
+    setValue,
     formState: { errors: rawFormErrors, touchedFields: touched },
   } = useForm<IFormInputs>({
     mode: 'onBlur',
@@ -47,18 +50,19 @@ export function Form1() {
   useEffect(() => {
     setFocus("firstName");
   }, [setFocus]);
-  console.log(touched);
 
   const formErrors: { [key: string]: undefined | FieldError } = {}; // To get only first error
   const errorKey = Object.keys(rawFormErrors)[0];
   formErrors[errorKey] = rawFormErrors[errorKey as keyof typeof rawFormErrors];
 
-  const [data, setData] = useState('');
 
-  console.log(formErrors?.firstName?.message);
+  const formData:IFormInputs = useSelector((state:RootState)=>state.orderForm.firstForm); // restore saved fields values
+  useEffect(()=>{
+   Object.entries(formData).forEach(
+     ([name, value]) => setValue(name as keyof IFormInputs, value));
+  }, [formData, setValue]);
 
   const mySubmitHandler = (data:IFormInputs) => {
-    setData(JSON.stringify(data));
     dispatch(sendFirstForm(data));
   }
   return (

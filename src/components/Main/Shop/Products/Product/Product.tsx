@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { updateCartItem } from '../../../../Cart/cartSlice';
 import { showToast } from '../../../../../helpers/showToast';
 import { useCookies } from 'react-cookie';
+import { resetForm } from '../../../../Forms/orderFormSlice';
 
 interface ProductProps {
   id: number;
@@ -29,10 +30,11 @@ export const Product = ({ id, title, author, imageSrc }: ProductProps) => {
         amount: Number(input.current?.value),
       })
     );
+    dispatch(resetForm());
     if (input.current?.value) {
       input.current.value = '1';
     }
-    showToast('INFO', 'Successfully added!');
+    showToast('INFO', 'Added to cart!');
   };
 
   const price =

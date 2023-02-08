@@ -17,6 +17,10 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    clearCart: (state) => {
+      state.cart = [];
+      state.total = 0;
+    },
     updateCartItem: (state, action) => {
       const { id, amount} = action.payload;
       const existingItemIndex = state.cart.findIndex(item => id === item.id);
@@ -49,5 +53,5 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { updateCartItem, toggleIsCartVisible } = cartSlice.actions;
+export const { updateCartItem, toggleIsCartVisible, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

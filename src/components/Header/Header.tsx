@@ -6,6 +6,10 @@ import { toggleIsCartVisible } from '../Cart/cartSlice';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { showToast } from '../../helpers/showToast';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 const BURGER_STYLE = {
   bmBurgerButton: {
@@ -42,11 +46,25 @@ const BURGER_STYLE = {
 };
 
 export const Header = () => {
+  const [cookies] = useCookies();
+  const cartItemCount = useSelector((state: RootState) => state.cart).cart.reduce((acc, item) => acc + item.amount, 0);
+  const [isButtonAnimated, setIsButtonAnimated] = useState(false);
+  useEffect(() => {
+    setIsButtonAnimated(true);
+
+    const timer = setTimeout(() => {
+      setIsButtonAnimated(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cartItemCount]);
   const dispatch = useDispatch();
 
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <nav className={styles.nav}>
         <Link to="/" className={styles.header}>
           <h2>InsaneStore</h2>
@@ -63,11 +81,17 @@ export const Header = () => {
         <a href="#footer" className={styles['nav-link']}>
           Contacts
         </a>
-        <a href="#1" className={styles['nav-link']} onClick={()=>showToast('WARNING', 'Not available yet :(')}>
+        <a href="#signin" className={styles['nav-link']} onClick={() => showToast('WARNING', 'Not available yet :(')}>
           Sign In
         </a>
-        <a href="#2" className={styles['nav-link']} onClick={dispatch.bind(null, toggleIsCartVisible())}>
+        <a href="#cart" className={`${styles['nav-link']} `} onClick={dispatch.bind(null, toggleIsCartVisible())}>
           Cart 🛒
+          <span
+            className={`${styles['nav-cart__span']} ${isButtonAnimated ? styles.bump : ''}`}
+            style={cookies.theme === 'white' ? { color: 'black' } : {}}
+          >
+            {cartItemCount}
+          </span>
         </a>
       </nav>
 
@@ -76,8 +100,19 @@ export const Header = () => {
           <h2>InsaneStore</h2>
         </Link>
         <div className={styles.block}>
-          <a href="#3" className={styles.cart} onClick={dispatch.bind(null, toggleIsCartVisible())}>
-            Cart 🛒
+          <a
+            href="#cart"
+            className={`${styles.cart} ${isButtonAnimated ? styles.bump : ''}`}
+            onClick={dispatch.bind(null, toggleIsCartVisible())}
+          >
+            Cart 🛒{' '}
+            <span
+              className={`${styles['nav-cart__span']} ${isButtonAnimated ? styles.bump : ''}`}
+              style={cookies.theme === 'white' ? { color: 'black' } : {}}
+            >
+              {' '}
+              {cartItemCount}
+            </span>
           </a>
           <Menu styles={BURGER_STYLE} right>
             <Link to="/about" className={styles['nav-link']}>
@@ -92,7 +127,7 @@ export const Header = () => {
             <a href="#footer" className={styles['nav-link']}>
               Contacts
             </a>
-            <a href="#4" className={styles['nav-link']}>
+            <a href="#signin" className={styles['nav-link']}>
               Sign In
             </a>
           </Menu>

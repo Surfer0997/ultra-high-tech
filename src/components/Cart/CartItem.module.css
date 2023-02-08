@@ -50,12 +50,12 @@
   font: inherit;
   font-weight: bold;
   font-size: 1.5rem;
-  color: #000;
+  color: #000 !important;
   border: 2px solid #000;
   width: 3rem;
   text-align: center;
   border-radius: 7px;
-  background-color: transparent;
+  background-color: transparent !important;
   cursor: pointer;
   margin-left: 1rem;
   margin: 0.25rem;

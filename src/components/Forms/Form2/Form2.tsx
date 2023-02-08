@@ -1,12 +1,13 @@
 import styles from '../Form1/Form1.module.css';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FieldError } from 'react-hook-form/dist/types';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { sendSecondForm } from '../orderFormSlice';
-import { CLOSING } from 'ws';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
+import { useEffect } from 'react';
 
 interface IFormInputs {
   country: string;
@@ -32,12 +33,25 @@ export function Form2() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors: rawFormErrors, touchedFields: touched },
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
 
-  const [data, setData] = useState('');
+  const formData:IFormInputs = useSelector((state:RootState)=>state.orderForm.secondForm);
+  
+ useEffect(()=>{
+  Object.entries(formData).forEach(
+    ([name, value]) => {
+      if (name === 'country') {
+        return;
+      }
+      setValue(name as keyof IFormInputs, value);
+    });
+ }, [formData, setValue]);
+
+
   const dispatch = useDispatch();
 
   const formErrors: { [key: string]: undefined | FieldError } = {}; // To get only first error
@@ -45,8 +59,6 @@ export function Form2() {
   formErrors[errorKey] = rawFormErrors[errorKey as keyof typeof rawFormErrors];
 
   const mySubmitHandler = (data: IFormInputs) => {
-   
-    setData(JSON.stringify(data));
     dispatch(sendSecondForm(data));
   };
 
@@ -58,7 +70,7 @@ export function Form2() {
         <option value="Ukraine">Ukraine</option>
       </select>
 
-      <input className={styles.inputs} {...register('city')} placeholder="Fill in your city" />
+      <input className={styles.inputs} {...register('city')} placeholder="Fill in your city"/>
       <p className={styles.invalidInput}>{touched.city && formErrors?.city?.message}</p>
 
       <input className={styles.inputs} {...register('street')} placeholder="Fill in your street" />
